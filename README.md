@@ -36,14 +36,14 @@ data/
 │   └── parsed_events.csv        # Parsed telemetry logs
 ├── output/
 │   ├── employees.csv            # Employee CSV
-│   └── telemetry_logs.jsonl     # Original telemetry logs
+│   └── telemetry_logs.jsonl     # Original tele    metry logs
 
 src/
 ├── analytics/
-│   ├── metrics.py               # Analytics functions
-│   └── test_metrics.py          # Unit tests / average session duration
+│   ├── metrics_validation.py   # Manual validation of analytics results         
+│   └── metrics.py              # Analytics functions
 ├── dashboard/
-│   └── app.py                   # Streamlit dashboard
+│   └── app.py                  # Streamlit dashboard
 ├── database/
 │   ├── db.py                   # SQLAlchemy engine and session
 │   ├── models.py               # Employee and Event models
@@ -62,14 +62,14 @@ technical_assessment_presentation.pdf # Insights presentation
     
 ## ⚙️ Setup
 
-### 1. Clone the repository
+### 1.📥 Clone the repository
 
     ```bash
     git clone <repo_url>
     cd claude-analytics-platform
     ```
 
-### 2. Create a virtual environment
+### 2. 🧩 Create a virtual environment
     ```bash
         python -m venv env
         # Linux / Mac
@@ -78,7 +78,7 @@ technical_assessment_presentation.pdf # Insights presentation
         env\Scripts\activate    
     ```
 
-### 3. Install dependencies
+### 3. 📦 Install dependencies
         pip install -r requirements.txt
         Required packages include:
             pandas
@@ -105,14 +105,14 @@ technical_assessment_presentation.pdf # Insights presentation
             python src/ingestion/load_data.py
         Stores the data in SQLite for analytics.
 
-### 7 Parser
+### 7 🔎 Parser
         Transforms raw JSONL telemetry logs into structured event records:
         python src/ingestion/parser.py
 
         Output:
             Structured CSV file (optional)
 
-### 8 Analytics Layer
+### 8 📊 Analytics Layer
 
     Performs all analytical computations and aggregation logic:
         Token usage by practice
@@ -124,16 +124,15 @@ technical_assessment_presentation.pdf # Insights presentation
         Average session duration
         Token usage over time
         Filter options loader
-    test_metrics.py
-    This module contains unit tests for validating analytical computations.
+    metrics_validation.py  
+    This module is used for manual validation of analytical computations.
 
     Purpose:
-        Ensure correctness of aggregations
+        Cross-check aggregated metrics against raw SQL queries
         Validate filtering logic
-        Detect regressions when metrics evolve
-        Guarantee consistency between database and analytics layer
+        Ensure consistency between database and analytics layer
 
-### 9. Streamlit dashboard
+### 9.🖥 Streamlit dashboard
 
         Runs the dashboard:
             streamlit run src/dashboard/app.py
@@ -146,7 +145,7 @@ technical_assessment_presentation.pdf # Insights presentation
             Tool Usage: tool success rates
             Errors: error rate by model
 
-### 10. explore.ipynb
+### 10.📓 explore.ipynb
         Used for analyzing raw telemetry logs before ingestion. Demonstrates:
             JSONL parsing
             Event extraction from log batches
