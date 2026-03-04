@@ -111,7 +111,7 @@ with tab_cost:
             model=selected_model,
             date_range=date_range
         )
-        st.metric("Avg Session Duration (min)", round(avg_duration, 2))
+        st.metric("Avg Session Duration (seconds)", f"{avg_duration:.2f}")
 
 # ---------------- Tab 3: Token Analytics ----------------
 with tab_token:
